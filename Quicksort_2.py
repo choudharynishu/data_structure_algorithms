@@ -24,7 +24,7 @@ def quicksort(array,left,right,count):
 
     #Select a pivot- randomized selection of pivot gives best performance
     #Total available choices for pivot selection = (right-left) index
-    if right > left+1:
+    if right > left:
         pivot_idx = left
         pivot_value = array[pivot_idx]
 
@@ -40,7 +40,9 @@ def quicksort(array,left,right,count):
 
 
 #Driver Case
-A = [10, 7, 8, 9, 1, 5]
+#A = [10, 7, 8, 9, 1, 5]
+from numpy import loadtxt
+A = list(loadtxt(f"/Users/nishuchoudhary/Desktop/Academic/Fall 2021/2148.txt", comments="#", delimiter="\n", unpack=False))
 NCOMPARE = quicksort(A,0,len(A)-1,0)
-print(A)
+#print(A)
 print(NCOMPARE)
