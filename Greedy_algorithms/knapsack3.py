@@ -1,5 +1,5 @@
 '''
-Script for solving the Knapsack problem using Memoization and Recursion
+Script for solving the Knapsack problem using Memoization and Iteration
 Time complexity = O(N*W)
 Space complexity = O(2*W)
 '''
