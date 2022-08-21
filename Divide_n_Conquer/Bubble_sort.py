@@ -1,6 +1,5 @@
-'''This script is used to implement Bubble sort'''
-'''Nishu Choudhary'''
-'''10/23/2021'''
+'''This script is used to implement Bubble sort
+   Nishu Choudhary'''
 
 #Function
 def bubble_sort(arr):
