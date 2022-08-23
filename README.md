@@ -1,6 +1,6 @@
 This repo contains implementation of the following
 1. Divide and Conquer algorithms
-   a. Merge sort \n
+   a. Merge sort
    b. Insertion sort
    c. Bubble sort
    d. Quicksort - with different types of pivot selection methods
