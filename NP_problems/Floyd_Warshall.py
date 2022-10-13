@@ -10,7 +10,11 @@ class Graph:
 
     #Function to define an edge using u,v where the edge is point from u to v
     def addEdge(self, u, v, c):
-        self.graph[u, v] = c
+        try:
+            val = self.graph[u,v]
+        except KeyError:
+            val = np.inf
+        self.graph[u, v] = min(c,val)
 
 #Imput file
 file = open(f"/Users/nishuchoudhary/Desktop/Academic/Fall 2021/DSA/graph1.txt", "r")
@@ -25,7 +29,7 @@ for index, line in enumerate(data[1:]):
     g.addEdge(head, tail, cost)
 
 #Initialize the A matrix
-A = np.zeros((n_vertices, n_vertices, n_vertices)) #Dimension should be (n_vertices , n_vertices, n_vertices+1)
+A = np.zeros((n_vertices, n_vertices, 2)) #Dimension should be (n_vertices , n_vertices, n_vertices+1)
 
 #Define base case for k =0
 
@@ -33,11 +37,11 @@ for i in range(n_vertices):
     for j in range(n_vertices):
 
         #Check if a direct edge (i,j) exists
-        if i ==j :
+        if i == j:
             A[i, j, 0] = 0
         else:
             try:
-                A[i, j, 0] = g.graph[(i+1,j+1)]
+                A[i, j, 0] = g.graph[(i+1, j+1)]
             except KeyError:
                 A[i, j, 0] = np.inf
 
@@ -45,9 +49,9 @@ for i in range(n_vertices):
 for k in range(1, n_vertices):
     for i in range(n_vertices):
         for j in range(n_vertices):
-                A[i, j, k] = min(A[i, j, k-1], A[i, k, k-1]+A[k, j, k-1])
+            A[i, j, (k % 2)] = min(A[i, j, (k-1) % 2], A[i, k, (k-1) % 2] + A[k, j, (k-1) % 2])
 
-print(f"Does negative cost cycle exists: { not all(np.diagonal(A[:, :, n_vertices-1])>0)}")
-print(np.min(A[:, :, n_vertices-1]))
+print(f"Does negative cost cycle exists: { not all(np.diagonal(A[:, :, k % 2])>0)}")
+print(np.min(A[:, :, k% 2]))
 
 
