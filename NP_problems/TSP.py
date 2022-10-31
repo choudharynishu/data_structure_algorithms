@@ -9,10 +9,16 @@ import itertools
 import numpy as np
 
 
-def euclidean_dist(x,y):
-    x1, x2 = x
-    y1, y2 = y
-    return np.sqrt((x1-y1)**2+(x2-y2)**2)
+def euclidean_dist(a, b):
+    '''
+    Function to estimate Euclidean distance between points in Cartesian plane
+    :param a:
+    :param b:
+    :return: Euclidean distance between the two points (a,b)
+    '''
+    x1, y1 = a
+    x2, y2 = b
+    return np.sqrt((x1-x2)**2+(y1-y2)**2)
 
 # Import and read the input file
 file = open(f"/Users/nishuchoudhary/Desktop/Academic/Fall 2021/DSA/TSP.txt", "r")
@@ -28,7 +34,8 @@ for index, item in enumerate(data):
 
 # Create a distance matrix for each pair of cities
 city_list = range(1, n_cities+1)
-# *This is creating directional edges, waste of space
+
+# All possible pairs of combinations to estimate the distance between any two cities
 pairwise_combinations = list(itertools.combinations(city_list, 2))
 
 start = time.perf_counter()
