@@ -1,4 +1,4 @@
-'''This script is an implementation for the solution of the Traveling Salesman Problem
+'''This script is an implementation for the solution of the Traveling Salesman Problem based on Dynamic Programming
    Running Time = O(n^2*2^)
 '''
 
