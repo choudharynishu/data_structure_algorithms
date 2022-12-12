@@ -20,3 +20,9 @@ This repo contains implementation of the following
    * Clustering algorithm with Hamming distance estimation
    * Shared resource scheduling problem - solved using difference and ratio
    * Huffman coding algorithm
+4. NP-complete Problems
+  * 2SAT problems - solved using Kosraju's SCC algorithm
+  * Maximum Weighted Independent Set problem for a path graph
+  * Floyd Warshall Algorithms
+  * TSP Heuristic solution
+  * TSP solution through Dynamic Programming
