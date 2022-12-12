@@ -1,6 +1,6 @@
 '''
-   Implementation of the Papadimitrou's Randomized heuristic method to solve the 2-SAT problem
-   Running Time: O()
+   Implementation of the Kosaraju's Strongly Connected Connected Components to solve the 2-SAT problem
+   Running Time: O(E+V)
 '''
 
 #Import Required Package
