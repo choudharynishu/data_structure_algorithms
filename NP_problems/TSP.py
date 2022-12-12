@@ -1,5 +1,5 @@
 '''This script is an implementation for the solution of the Traveling Salesman Problem based on Dynamic Programming
-   Running Time = O(n^2*2^)
+   Running Time = O(n^2*2^n)
 '''
 
 #Import Required Packages
@@ -53,11 +53,11 @@ for s in base_sizes:
 A[(1,), 1] = 0
 
 # Iterate through all possible set S memberships and final destination j combinations
-s_sizes = list(range(2,n_cities+1))     #Variable that controls the size of set S
+s_sizes = list(range(2, n_cities+1))     #Variable that controls the size of set S
 for s in s_sizes:
     set_S = list(filter(lambda x: 1 in x, itertools.combinations(city_list, s)))
     for S in set_S:
-        set_j = list(filter(lambda x: not x ==1, itertools.chain(*itertools.combinations(S, 1))))
+        set_j = list(filter(lambda x: not x == 1, itertools.chain(*itertools.combinations(S, 1))))
         for j in set_j:
             S_notj = S[:S.index(j)] + S[S.index(j) + 1:]
             A[S, j] = min([A[S_notj, k] + distance[tuple(sorted((j, k)))] for k in S_notj])
